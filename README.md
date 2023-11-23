@@ -12,19 +12,21 @@
    ```sql
       # /api/cliente/ClientesPagoVentasCiudad
    ```
-   ##var Dato = await (
-            ## from cli in _context.Clientes
-            ## join pag in _context.Pagos on cli.CodigoCliente equals pag.CodigoCliente
-            ## join emp in _context.Empleados on cli.CodigoEmpleadoRepVentas equals emp.CodigoEmpleado
-            ## where pag.IdTransaccion != null
-            ## select new
-            ## {
+   ```
+   var Dato = await (
+             from cli in _context.Clientes
+             join pag in _context.Pagos on cli.CodigoCliente equals pag.CodigoCliente
+             join emp in _context.Empleados on cli.CodigoEmpleadoRepVentas equals emp.CodigoEmpleado
+             where pag.IdTransaccion != null
+             select new
+            {
                 ## Nombre = cli.NombreCliente,
                 ## NombreRepresentante = emp.Nombre + " " + emp.Apellidol + " " + emp.Apellido2,
                  ##CiudadOficina = emp.CodigoOficina
-             ##}).Distinct().ToListAsync();
- ##
-         ##return Dato;
+             }).Distinct().ToListAsync();
+ 
+         return Dato;
+   ```
 4.  Devuelve un listado que muestre el nombre de cada empleados, el nombre de su jefe y el nombre del jefe de sus jefe.
    ```sql
       # /api/empleado/EmpleadosyJefes
