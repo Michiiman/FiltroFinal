@@ -2,12 +2,10 @@ using API.Dtos;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
-[ApiVersion("1.0")]
-[ApiVersion("1.1")]
+
 public class OficinaController : BaseApiController
 {
     private readonly IUnitOfWork unitofwork;
